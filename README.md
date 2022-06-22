@@ -1,11 +1,11 @@
 # Flutter MVVM example with provider and getIt.
 # MVVM + Provider + GetIT + Sembast
-A flutter project to showcase a clean code architecture.
 #1: Provider as state management.
 #2: GetIt as dependency injection.
 #3: DIO as Remote calls.
 #4: Sembast as Local database.
 #5: Complete Repository pattern with offline first ability.
+A flutter project to showcase a clean code architecture.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
