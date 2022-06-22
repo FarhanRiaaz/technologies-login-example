@@ -42,6 +42,7 @@ dependencies:
   http: ^0.13.4
   # A powerful Http client for Dart
   dio: ^4.0.6
+  build_runner: ^2.1.11
   # Dependency injection
   get_it: ^7.2.0
   injectable: ^1.5.3
