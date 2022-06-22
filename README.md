@@ -1,6 +1,6 @@
 # Flutter MVVM example with provider and getIt.
 # MVVM + Provider + GetIT + Sembast
-## A flutter project to showcase a clean code architecture.
+## A flutter project to showcase a clean architecture.
 ### Flutter app contains login feature and profile screen.
 
 1: Provider as state management.
