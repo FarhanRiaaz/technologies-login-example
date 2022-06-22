@@ -8,6 +8,7 @@ import 'package:technologies_login_example/domain/viewmodels/base_view_model.dar
 class LoginViewModel extends BaseViewModel {
   final UserRepository _userRepository = getIt<UserRepository>();
   late User? user;
+  String? errorMessage;
 
   Future<bool> login(String email, String password) async {
     setState(ViewState.BUSY);
@@ -18,6 +19,7 @@ class LoginViewModel extends BaseViewModel {
       _userRepository.insertUser(success.data!.user!);
       return true;
     } else {
+      errorMessage = "Invalid credentials";
       return false;
     }
   }
