@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technologies_login_example/di/components/service_locator.dart';
-import 'package:technologies_login_example/domain/viewmodels/base_view_model.dart';
+import 'package:technologies_login_example/domain/viewmodel/base_view_model.dart';
 
 class BaseScreen<T extends BaseViewModel> extends StatefulWidget {
   final Widget Function(BuildContext context, T model, Widget? child) builder;

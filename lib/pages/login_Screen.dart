@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:technologies_login_example/domain/enums/view_state.dart';
-import 'package:technologies_login_example/domain/viewmodels/login_view_model.dart';
+import 'package:technologies_login_example/domain/viewmodel/login_view_model.dart';
+import 'package:technologies_login_example/pages/home_screen.dart';
 import 'package:technologies_login_example/utils/commons/app_colors.dart';
 import 'package:technologies_login_example/widgets/base_widget.dart';
 import 'package:technologies_login_example/widgets/login_screen_body.dart';
@@ -44,10 +45,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       var loginSuccess = await model.login(
                           _emailController.text, _passwordController.text);
                       if (loginSuccess) {
-                        Navigator.pushNamed(context, '/');
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const HomeScreen()));
                       }
                     },
-                  )
+                  ),
+            TextButton(
+              child: const Text(
+                'Skip',
+                style: TextStyle(
+                  color: Colors.black87,
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const HomeScreen()));
+              },
+            )
           ],
         ),
       ),

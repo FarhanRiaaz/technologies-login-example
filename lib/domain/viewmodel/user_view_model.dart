@@ -2,7 +2,7 @@ import 'package:technologies_login_example/di/components/service_locator.dart';
 import 'package:technologies_login_example/domain/enums/view_state.dart';
 import 'package:technologies_login_example/domain/models/login/login_response.dart';
 import 'package:technologies_login_example/domain/repositories/user_repository.dart';
-import 'package:technologies_login_example/domain/viewmodels/base_view_model.dart';
+import 'package:technologies_login_example/domain/viewmodel/base_view_model.dart';
 
 class UserViewModel extends BaseViewModel {
   final UserRepository _userRepository = getIt<UserRepository>();
