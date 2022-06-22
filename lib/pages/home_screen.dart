@@ -14,22 +14,19 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BaseScreen<UserViewModel>(
+      onModelReady: (viewModel) => viewModel.isUserLoggedIn(),
       builder: (context, model, child) => Scaffold(
-          backgroundColor: backgroundColor, body: HomeScreenBody(model)),
-    );
-  }
-
-  Widget HomeScreenBody(UserViewModel model) {
-    model.isUserLoggedIn().then((value) {});
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          model.user?.name != null
-              ? Text("${model.user!.name} is LoggedIn")
-              : const Text("Guest is LoggedIn")
-        ],
-      ),
+          backgroundColor: backgroundColor,
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                model.user?.name != null
+                    ? Text("${model.user!.name} is LoggedIn")
+                    : const Text("Guest is LoggedIn")
+              ],
+            ),
+          )),
     );
   }
 }

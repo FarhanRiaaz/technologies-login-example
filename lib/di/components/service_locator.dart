@@ -12,6 +12,7 @@ import 'package:technologies_login_example/di/modules/local_module.dart';
 import 'package:technologies_login_example/di/modules/netwok_module.dart';
 import 'package:technologies_login_example/di/modules/preference_module.dart';
 import 'package:technologies_login_example/domain/repositories/user_repository.dart';
+import 'package:technologies_login_example/domain/viewmodel/base_view_model.dart';
 import 'package:technologies_login_example/domain/viewmodel/login_view_model.dart';
 import 'package:technologies_login_example/domain/viewmodel/user_view_model.dart';
 
@@ -25,8 +26,6 @@ Future<void> setupLocator() async {
       () => PreferenceModule.provideSharedPreferences());
 
   getIt.registerSingletonAsync<Database>(() => LocalModule.provideDatabase());
-  getIt.registerSingletonAsync<SharedPreferences>(
-          () => PreferenceModule.provideSharedPreferences());
   // singletons:----------------------------------------------------------------
   getIt.registerSingleton(
       SharedPreferenceHelper(getIt.getAsync<SharedPreferences>()));
@@ -36,6 +35,7 @@ Future<void> setupLocator() async {
   getIt.registerSingleton(RestClient());
   // api's:---------------------------------------------------------------------
   getIt.registerSingleton(UsersApi(getIt<DioClient>()));
+  getIt.registerSingleton(UserDataSource(getIt.getAsync<Database>()));
   // repository:----------------------------------------------------------------
   getIt.registerSingleton(UserRepository(
     getIt<UsersApi>(),
@@ -43,6 +43,8 @@ Future<void> setupLocator() async {
   ));
 
   // view models:---------------------------------------------------------------
-  getIt.registerSingleton(LoginViewModel());
-  getIt.registerSingleton(UserViewModel());
+  getIt.registerFactory(() => BaseViewModel());
+  getIt.registerFactory(() => LoginViewModel());
+  getIt.registerFactory(() => UserViewModel());
+
 }
