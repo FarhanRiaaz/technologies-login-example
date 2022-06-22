@@ -1,6 +1,7 @@
 # Flutter MVVM example with provider and getIt.
 # MVVM + Provider + GetIT + Sembast
 ## A flutter project to showcase a clean code architecture.
+### Login feature and Home screen.
 
 1: Provider as state management.
 
@@ -10,7 +11,7 @@
 
 4: Sembast as Local database.
 
- 5: Complete Repository pattern with offline first ability.
+5: Complete Repository pattern with offline first ability.
 ## Getting Started
 
 This project is a starting point for a Flutter application.
