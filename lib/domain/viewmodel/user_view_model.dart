@@ -6,7 +6,7 @@ import 'package:technologies_login_example/domain/viewmodel/base_view_model.dart
 
 class UserViewModel extends BaseViewModel {
   final UserRepository _userRepository = getIt<UserRepository>();
-  late User? user;
+  late User user = User();
 
   Future<bool> isUserLoggedIn() async {
     setState(ViewState.BUSY);
