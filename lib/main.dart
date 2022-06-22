@@ -11,17 +11,11 @@ Future<void> main() async {
 
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-  runApp(
-    ChangeNotifierProvider<BaseViewModel>.value(
-      value: getIt<BaseViewModel>(),
-      child: MyApp(),
-    ),
-  );
+  runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -32,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home:const LoginScreen(),
+      home: const LoginScreen(),
     );
   }
 }

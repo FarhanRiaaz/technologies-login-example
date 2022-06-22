@@ -15,12 +15,12 @@ class UsersApi {
   // Generate an SMS for a registered user
   Future<LoginResponse?> loginUser(LoginRequest request) async {
     try {
-      var req = request.toJson();
-      final res = await _dioClient!.post(Endpoints.login, data: req);
+      final res = await _dioClient!.post(
+          "${Endpoints.login}?email=${request.email}&password=${request.password}");
       if (res != null) {
         return LoginResponse.fromJson(res);
       } else {
-        throw Future.error(Exception("Null response received!"));
+        return LoginResponse();
       }
     } catch (e, s) {
       if (kDebugMode) {

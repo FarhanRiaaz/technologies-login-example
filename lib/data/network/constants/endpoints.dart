@@ -13,9 +13,9 @@ class Endpoints {
   static const Duration retryInterval = Duration(seconds: 10);
 
   // login endpoints
-  static String login = baseUrl + "/auth/login ";
+  static String login = baseUrl + "/auth/login";
 
   static String _getBaseURL() {
-    return 'https://staging.wikwik.app/api/';
+    return 'https://staging.wikwik.app/api';
   }
 }

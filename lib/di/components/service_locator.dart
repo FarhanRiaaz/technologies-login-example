@@ -19,8 +19,6 @@ import 'package:technologies_login_example/domain/viewmodel/user_view_model.dart
 final getIt = GetIt.instance;
 
 Future<void> setupLocator() async {
-  final gh = GetItHelper(getIt);
-
   // async singletons:----------------------------------------------------------
   getIt.registerSingletonAsync<SharedPreferences>(
       () => PreferenceModule.provideSharedPreferences());
@@ -43,7 +41,6 @@ Future<void> setupLocator() async {
   ));
 
   // view models:---------------------------------------------------------------
-  getIt.registerFactory(() => BaseViewModel());
   getIt.registerFactory(() => LoginViewModel());
   getIt.registerFactory(() => UserViewModel());
 

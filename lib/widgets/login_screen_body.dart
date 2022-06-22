@@ -23,17 +23,21 @@ class LoginScreenBody extends StatelessWidget {
         ),
         const Text('Enter your email and password to login',
             style: subHeaderStyle),
+        const SizedBox(
+          height: 20,
+        ),
         LoginTextField(
           controller: controller,
           type: TextInputType.emailAddress,
+          hint: "Email",
         ),
-        validationMessage != null
-            ? Text(validationMessage!,
-                style: const TextStyle(color: Colors.red))
-            : Container(),
         LoginTextField(
           controller: passWordController,
           type: TextInputType.visiblePassword,
+          hint: "Password",
+        ),
+        const SizedBox(
+          height: 20,
         ),
         validationMessage != null
             ? Text(validationMessage!,
@@ -47,15 +51,16 @@ class LoginScreenBody extends StatelessWidget {
 class LoginTextField extends StatelessWidget {
   final TextEditingController controller;
   final TextInputType type;
+  final String hint;
 
-  const LoginTextField({Key? key, required this.controller, required this.type})
+  const LoginTextField({Key? key, required this.controller, required this.type, required this.hint})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
-      margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+      margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
       height: 50.0,
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
@@ -63,8 +68,9 @@ class LoginTextField extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: TextField(
-        decoration: const InputDecoration.collapsed(hintText: 'User id'),
+        decoration:  InputDecoration.collapsed(hintText: hint),
         keyboardType: type,
+        obscureText: type==TextInputType.visiblePassword?true:false,
         controller: controller,
       ),
     );

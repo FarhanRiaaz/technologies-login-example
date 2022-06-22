@@ -30,11 +30,14 @@ class _LoginScreenState extends State<LoginScreen> {
               controller: _emailController,
               passWordController: _passwordController,
             ),
+            const SizedBox(
+              height: 20,
+            ),
             model.state == ViewState.BUSY
                 ? const Center(
                     child: CircularProgressIndicator(),
                   )
-                : TextButton(
+                : ElevatedButton(
                     child: const Text(
                       'Login',
                       style: TextStyle(
@@ -42,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     onPressed: () async {
+                      FocusManager.instance.primaryFocus?.unfocus();
                       var loginSuccess = await model.login(
                           _emailController.text, _passwordController.text);
                       if (loginSuccess) {
@@ -58,6 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               onPressed: () {
+                model.errorMessage = "";
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => const HomeScreen()));
               },
