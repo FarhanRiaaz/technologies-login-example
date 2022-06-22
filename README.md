@@ -1,4 +1,5 @@
 # Flutter MVVM example with provider and getIt.
+# MVVM + Provider + GetIT + Sembast
 A flutter project to showcase a clean code architecture.
 1: Provider as state management.
 2: GetIt as dependency injection.
