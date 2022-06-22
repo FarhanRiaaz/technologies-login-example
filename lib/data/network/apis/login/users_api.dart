@@ -13,7 +13,7 @@ class UsersApi {
   UsersApi(this._dioClient);
 
   // Generate an SMS for a registered user
-  Future<LoginResponse?> registerUser(LoginRequest request) async {
+  Future<LoginResponse?> loginUser(LoginRequest request) async {
     try {
       var req = request.toJson();
       final res = await _dioClient!.post(Endpoints.login, data: req);

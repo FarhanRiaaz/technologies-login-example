@@ -98,6 +98,21 @@ class User {
         role: Role.fromJson(json["role"]),
         clients: List<int>.from(json["clients"].map((x) => x)),
       );
+  factory User.fromMap(Map<String, dynamic> json) => User(
+      id: json["id"],
+      name: json["name"],
+      username: json["username"],
+      email: json["email"],
+      emailVerifiedAt: json["email_verified_at"],
+      phone: json["phone"],
+      phoneVerifiedAt: json["phone_verified_at"],
+      createdAt: DateTime.parse(json["created_at"]),
+      updatedAt: DateTime.parse(json["updated_at"]),
+      roleId: json["role_id"],
+      status: json["status"],
+      language: json["language"],
+      role: Role.fromJson(json["role"]),
+      clients: List<int>.from(json["clients"].map((x) => x)));
 
   Map<String, dynamic> toJson() => {
         "id": id,
