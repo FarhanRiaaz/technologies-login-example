@@ -12,6 +12,8 @@ import 'package:technologies_login_example/di/modules/local_module.dart';
 import 'package:technologies_login_example/di/modules/netwok_module.dart';
 import 'package:technologies_login_example/di/modules/preference_module.dart';
 import 'package:technologies_login_example/domain/repositories/user_repository.dart';
+import 'package:technologies_login_example/domain/viewmodel/login_view_model.dart';
+import 'package:technologies_login_example/domain/viewmodel/user_view_model.dart';
 
 final getIt = GetIt.instance;
 
@@ -41,4 +43,6 @@ Future<void> setupLocator() async {
   ));
 
   // view models:---------------------------------------------------------------
+  getIt.registerSingleton(LoginViewModel());
+  getIt.registerSingleton(UserViewModel());
 }
